@@ -1,0 +1,31 @@
+'use strict';
+
+// This function isn't used anywhere, so
+// Rollup excludes it from the bundle...
+var PI = 3.14;
+
+
+
+// This function gets included
+function cube(x) {
+  return x * x * x * PI;
+}
+
+// 只使用了 cube, 所以 maths 中的 square 会被 tree shaking 移除掉
+function foo(x) {
+  if (x) {
+    return cube(x);
+  }
+  return -1;
+}
+
+{
+  console.log('-----');
+}
+
+var main = {
+  foo: foo
+};
+
+module.exports = main;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWF0aC5janMuanMiLCJzb3VyY2VzIjpbIi4uL3NyYy9tYXRocy5qcyIsIi4uL3NyYy9tYWluLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIFRoaXMgZnVuY3Rpb24gaXNuJ3QgdXNlZCBhbnl3aGVyZSwgc29cbi8vIFJvbGx1cCBleGNsdWRlcyBpdCBmcm9tIHRoZSBidW5kbGUuLi5cbmNvbnN0IFBJID0gMy4xNDtcblxuZXhwb3J0IGZ1bmN0aW9uIHNxdWFyZSh4KSB7XG4gIHJldHVybiB4ICogeDtcbn1cblxuLy8gVGhpcyBmdW5jdGlvbiBnZXRzIGluY2x1ZGVkXG5leHBvcnQgZnVuY3Rpb24gY3ViZSh4KSB7XG4gIHJldHVybiB4ICogeCAqIHggKiBQSTtcbn1cbiIsIi8qIEBmbG93ICovXG5pbXBvcnQgeyBjdWJlIH0gZnJvbSAnLi9tYXRocyc7XG5cbi8vIOWPquS9v+eUqOS6hiBjdWJlLCDmiYDku6UgbWF0aHMg5Lit55qEIHNxdWFyZSDkvJrooqsgdHJlZSBzaGFraW5nIOenu+mZpOaOiVxuZnVuY3Rpb24gZm9vKHg6ID9udW1iZXIpOiBudW1iZXIge1xuICBpZiAoeCkge1xuICAgIHJldHVybiBjdWJlKHgpO1xuICB9XG4gIHJldHVybiAtMTtcbn1cblxuaWYgKHByb2Nlc3MuZW52Lk5PREVfRU5WICE9PSAncHJvZHVjdGlvbicpIHtcbiAgY29uc29sZS5sb2coJy0tLS0tJyk7XG59XG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZm9vXG59O1xuIl0sIm5hbWVzIjpbIlBJIiwiY3ViZSIsIngiLCJmb28iLCJsb2ciXSwibWFwcGluZ3MiOiI7O0FBQUE7O0FBRUEsSUFBTUEsS0FBSyxJQUFYOztBQUVBOzs7QUFLQSxBQUFPLFNBQVNDLElBQVQsQ0FBY0MsQ0FBZCxFQUFpQjtTQUNmQSxJQUFJQSxDQUFKLEdBQVFBLENBQVIsR0FBWUYsRUFBbkI7OztBQ1BGO0FBQ0EsU0FBU0csR0FBVCxDQUFhRCxDQUFiLEVBQWlDO01BQzNCQSxDQUFKLEVBQU87V0FDRUQsS0FBS0MsQ0FBTCxDQUFQOztTQUVLLENBQUMsQ0FBUjs7O0FBR0YsQUFBMkM7VUFDakNFLEdBQVIsQ0FBWSxPQUFaOzs7QUFHRixXQUFlOztDQUFmOzs7OyJ9
